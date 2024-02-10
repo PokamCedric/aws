@@ -1,6 +1,9 @@
 
 # Create Nat-GW route for each NAT-GW
 resource "aws_route_table" "private_route" {
+
+  depends_on = [aws_nat_gateway.nat_gw]
+
   count  = length(var.public_web_subnets_cidr)
   vpc_id = aws_vpc.vpc.id
   route {

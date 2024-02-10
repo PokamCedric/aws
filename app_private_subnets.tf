@@ -1,6 +1,9 @@
 
 # Create private-app-subnets
-resource "aws_subnet" "private-app-subnet" {
+resource "aws_subnet" "private_app_subnet" {
+
+  depends_on = [aws_subnet.public_web_subnet]
+
   count                   = length(var.private_app_subnets_cidr)
   vpc_id                  = aws_vpc.vpc.id
   cidr_block              = var.private_app_subnets_cidr[count.index]
