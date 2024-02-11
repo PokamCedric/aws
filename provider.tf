@@ -10,7 +10,7 @@ terraform {
 
 # Configure the AWS Provider
 provider "aws" {
-  region = "us-east-1"
+  region = var.region
 }
 
 # Get all available AZ's in VPC for master region

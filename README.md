@@ -1,6 +1,6 @@
-# terraform 
-This is a repo to store terraform project files
-
+# Goal 
+Build a High available and 3-Tier Network architecture on AWS using Terraform  <br />  <br />
+![3-Tier Network](assets/images/3-Tier-Network.png)  <br />
 
 # Network Steps 
 01 Create a Provider for AWS. <br />
