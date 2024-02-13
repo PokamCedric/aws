@@ -16,7 +16,8 @@ variable "public_subnets_list" {
     name  = string
     cidrs = list(string)
   }))
-  default = [{ name = "web", cidrs = ["172.20.1.0/24", "172.20.2.0/24", "172.20.3.0/24"] }]
+  default = [{ name = "web", cidrs = ["172.20.1.0/24", "172.20.2.0/24", "172.20.3.0/24"] },
+            { name = "jenkins", cidrs = ["172.20.10.0/24", "172.20.11.0/24", "172.20.12.0/24"] }]
 }
 
 variable "private_subnets_list" {

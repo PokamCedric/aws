@@ -1,7 +1,6 @@
 # local
 locals {
   azs_count               = length(var.public_subnets_list[0].cidrs)
-  public_subnets_az_count = length(var.public_subnets_list[0].cidrs)
   public_subnets_count    = length(var.public_subnets_list) * length(var.public_subnets_list[0].cidrs)
 }
 
@@ -15,7 +14,7 @@ resource "aws_subnet" "public_subnets" {
   vpc_id                  = aws_vpc.vpc.id
   cidr_block              = element(var.public_subnets_list[floor(count.index / local.azs_count)].cidrs, count.index % local.azs_count)
   availability_zone       = element(data.aws_availability_zones.azs.names, count.index % local.azs_count)
-  map_public_ip_on_launch = false
+  map_public_ip_on_launch = true
   tags = {
     Name = "public-${var.public_subnets_list[floor(count.index / local.azs_count)].name}-subnet-${element(data.aws_availability_zones.azs.names, count.index % local.azs_count)}"
   }
