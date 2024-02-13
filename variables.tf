@@ -18,11 +18,11 @@ variable "public_web_subnets_cidr" {
 
 variable "private_subnets_list" {
   description = "This are the private Subnets properties"
-  type        = list(object({
-    name      = string
-    cidrs  = list(string)
+  type = list(object({
+    name  = string
+    cidrs = list(string)
   }))
-  default     = [{name= "app", cidrs = ["172.20.4.0/24", "172.20.5.0/24", "172.20.6.0/24"]},
-  {name= "db", cidrs = ["172.20.7.0/24", "172.20.8.0/24", "172.20.9.0/24"]}  ]
+  default = [{ name = "app", cidrs = ["172.20.4.0/24", "172.20.5.0/24", "172.20.6.0/24"] },
+  { name = "db", cidrs = ["172.20.7.0/24", "172.20.8.0/24", "172.20.9.0/24"] }]
 }
 
