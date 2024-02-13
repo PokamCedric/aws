@@ -5,8 +5,7 @@ resource "aws_eip" "eip" {
   # on the Internet Gateway for the VPC.
   depends_on = [aws_internet_gateway.igw]
 
-  count = length(var.public_web_subnets_cidr)
-
+  count = local.azs_count
   tags = {
     Name = "eip-${element(data.aws_availability_zones.azs.names, count.index)}"
   }

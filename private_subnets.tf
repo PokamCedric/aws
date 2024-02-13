@@ -1,15 +1,14 @@
 # local
 locals {
-  azs_count     = length(var.private_subnets_list[0].cidrs)
-  subnets_count = length(var.private_subnets_list) * length(var.private_subnets_list[0].cidrs)
+  private_subnets_count = length(var.private_subnets_list) * local.azs_count
 }
 
 # Create private-app-subnets
 resource "aws_subnet" "private_subnets" {
 
-  depends_on = [aws_subnet.public_web_subnet]
+  depends_on = [aws_subnet.public_subnets]
 
-  count                   = local.subnets_count
+  count                   = local.private_subnets_count
   vpc_id                  = aws_vpc.vpc.id
   cidr_block              = element(var.private_subnets_list[floor(count.index / local.azs_count)].cidrs, count.index % local.azs_count)
   availability_zone       = element(data.aws_availability_zones.azs.names, count.index % local.azs_count)
@@ -19,6 +18,6 @@ resource "aws_subnet" "private_subnets" {
   }
 }
 
-output "count-priv-subnets" {
-  value = local.subnets_count
+output "count-private-subnets" {
+  value = local.private_subnets_count
 }

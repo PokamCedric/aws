@@ -10,10 +10,13 @@ variable "vpc_cidr" {
   default     = "172.20.0.0/20"
 }
 
-variable "public_web_subnets_cidr" {
-  description = "This are the CIDRs of the public web Subnets"
-  type        = list(string)
-  default     = ["172.20.1.0/24", "172.20.2.0/24", "172.20.3.0/24"]
+variable "public_subnets_list" {
+  description = "This are the public Subnets properties"
+  type = list(object({
+    name  = string
+    cidrs = list(string)
+  }))
+  default = [{ name = "web", cidrs = ["172.20.1.0/24", "172.20.2.0/24", "172.20.3.0/24"] }]
 }
 
 variable "private_subnets_list" {

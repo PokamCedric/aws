@@ -20,8 +20,6 @@ Build a High available and 3-Tier Network architecture on AWS using Terraform  <
 | 11  | Associate the Priv RT to the Private Subnets.    | `*_private_route_table_association.tf` |
 
 
-!Note: The numbers of Availabilities Zones is determined by the number public subnets set in the variable `public_web_subnets_cidr` 
-
 
 ## App Configuration Steps
 

@@ -4,7 +4,7 @@ resource "aws_route_table" "private_route" {
 
   depends_on = [aws_nat_gateway.nat_gw]
 
-  count  = length(var.public_web_subnets_cidr)
+  count  = local.azs_count
   vpc_id = aws_vpc.vpc.id
   route {
     cidr_block = "0.0.0.0/0"
