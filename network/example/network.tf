@@ -1,11 +1,5 @@
-
-variable "region" {
-  description = "Region we need to deploy the infrastructure"
-  type        = string
-  default     = "us-east-1"
-}
 module "network" {
-  source = "./network"
+  source = "../"
 
   vpc_cidr             = "172.20.0.0/20"
   enable_dns_support   = true
