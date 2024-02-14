@@ -14,3 +14,8 @@ terraform {
 provider "aws" {
   region = var.region
 }
+
+# Get all available AZ's in VPC for master region
+data "aws_availability_zones" "azs" {
+  state = "available"
+}

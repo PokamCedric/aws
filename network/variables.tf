@@ -20,11 +20,12 @@ variable "instance_tenancy" {
   default     = "default"
 }
 
-# variable "azs" {
-#   description = "A list of availability zones names or ids in the region"
-#   type        = list(string)
-#   default     = []
-# }
+variable "azs" {
+  description = "A list of availability zones names or ids in the region"
+  type        = list(string)
+  default     = []
+}
+
 
 variable "enable_dns_hostnames" {
   description = "Should be true to enable DNS hostnames in the VPC"
@@ -47,24 +48,22 @@ variable "vpc_tags" {
 ################################################################################
 # Publiс Subnets
 ################################################################################
-variable "public_subnets_list" {
+variable "public_subnets" {
   description = "This are the public Subnets properties"
   type = list(object({
     name  = string
     cidrs = list(string)
   }))
-  default = [{ name = "web", cidrs = ["172.20.1.0/24", "172.20.2.0/24", "172.20.3.0/24"] },
-            { name = "jenkins", cidrs = ["172.20.10.0/24", "172.20.11.0/24", "172.20.12.0/24"] }]
+  default = []
 }
 
-variable "private_subnets_list" {
+variable "private_subnets" {
   description = "This are the private Subnets properties"
   type = list(object({
     name  = string
     cidrs = list(string)
   }))
-  default = [{ name = "app", cidrs = ["172.20.4.0/24", "172.20.5.0/24", "172.20.6.0/24"] },
-  { name = "db", cidrs = ["172.20.7.0/24", "172.20.8.0/24", "172.20.9.0/24"] }]
+  default = []
 }
 
 variable "map_public_ip_on_launch" {
