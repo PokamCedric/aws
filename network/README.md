@@ -1,7 +1,7 @@
 ## Introduction
 
 Build a High available and 3-Tier Network architecture on AWS using Terraform  <br />  <br />
-![3-Tier Network](./assets/images/3-Tier-Network.png)  <br />
+![3-Tier Network](../assets/images/3-Tier-Network.png)  <br />
 
 ## Getting to know the Steps
 
@@ -15,6 +15,6 @@ Build a High available and 3-Tier Network architecture on AWS using Terraform  <
 | 06  | Create a Public Route Table (Pub RT) Consisting of Internet Gateway.    | `public_route_table.tf` |
 | 07  | Associate the Pub RT to the Public Subnets to provide the Internet Gateway address.    | `public_route_table_association.tf` |
 | 08  | Create Elastic IPs for the NAT Gateways.    | `EIPs.tf` |
-| 09  | Createa NAT Gateway for private instances to access the Internet | `NGWs.tf` |
+| 09  | Create a NAT Gateway for private instances to access the Internet | `NGWs.tf` |
 | 10  | Create Private Route Tables (Pub RT) consisting of Nat Gateway  | `private_route_table.tf` |
 | 11  | Associate the Priv RT to the Private Subnets.    | `private_route_table_association.tf` |
