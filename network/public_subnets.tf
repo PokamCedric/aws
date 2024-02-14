@@ -5,7 +5,7 @@ locals {
 }
 
 # Create public-web-subnets
-resource "aws_subnet" "public_subnets" {
+resource "aws_subnet" "public" {
   depends_on = [
     aws_vpc.vpc
   ]

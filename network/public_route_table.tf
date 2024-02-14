@@ -1,6 +1,6 @@
 
 # Create public-web-route table and associate this to the public-web-subnets
-resource "aws_route_table" "internet_route" {
+resource "aws_route_table" "public" {
   depends_on = [
     aws_vpc.vpc,
     aws_internet_gateway.igw

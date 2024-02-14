@@ -4,9 +4,9 @@ locals {
 }
 
 # Create private-app-subnets
-resource "aws_subnet" "private_subnets" {
+resource "aws_subnet" "private" {
 
-  depends_on = [aws_subnet.public_subnets]
+  depends_on = [aws_subnet.public]
 
   count                   = local.private_subnets_count
   vpc_id                  = aws_vpc.vpc.id
