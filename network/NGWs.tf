@@ -6,8 +6,8 @@ resource "aws_nat_gateway" "nat_gw" {
 
   count         = local.azs_count
   allocation_id = element(aws_eip.eip[*].id, count.index)
-  subnet_id     = element(aws_subnet.public_subnets[*].id, floor(count.index / local.public_subnets_count))
+  subnet_id     = element(aws_subnet.public[*].id, floor(count.index / local.public_subnets_count))
   tags = {
-    Name = "gw-NAT-${element(data.aws_availability_zones.azs.names, count.index)}"
+    Name = "gw-NAT-${element(var.azs_names, count.index)}"
   }
 }
