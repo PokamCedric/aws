@@ -11,6 +11,6 @@ resource "aws_route_table" "private" {
     gateway_id = element(aws_nat_gateway.nat_gw[*].id, count.index)
   }
   tags = {
-    Name = "private-route-${element(var.azs, count.index)}"
+    Name = "private-route-${element(var.azs_names, count.index)}"
   }
 }

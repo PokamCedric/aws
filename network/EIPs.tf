@@ -7,6 +7,6 @@ resource "aws_eip" "eip" {
 
   count = local.azs_count
   tags = {
-    Name = "eip-${element(var.azs, count.index)}"
+    Name = "eip-${element(var.azs_names, count.index)}"
   }
 }

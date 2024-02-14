@@ -28,9 +28,9 @@ output "vpc_instance_tenancy" {
   value       = try(aws_vpc.this.instance_tenancy, null)
 }
 
-output "azs" {
+output "azs_names" {
   description = "A list of availability zones specified as argument to this module"
-  value       = var.azs
+  value       = var.azs_names
 }
 
 output "enable_dns_support" {

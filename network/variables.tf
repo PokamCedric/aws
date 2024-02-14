@@ -20,7 +20,7 @@ variable "instance_tenancy" {
   default     = "default"
 }
 
-variable "azs" {
+variable "azs_names" {
   description = "A list of availability zones names or ids in the region"
   type        = list(string)
   default     = []
