@@ -6,4 +6,8 @@ resource "aws_vpc" "this" {
   enable_dns_support   = var.enable_dns_support
   tags                 = var.vpc_tags
 
+  # IPAM ipv4
+  ipv4_ipam_pool_id   = var.ipv4_ipam_pool_id
+  ipv4_netmask_length = var.ipv4_netmask_length
+
 }
