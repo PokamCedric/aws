@@ -1,9 +1,3 @@
-variable "region" {
-  description = "Region we need to deploy the infrastructure"
-  type        = string
-  default     = null
-}
-
 variable "vpc_id" {
   description = "VPC id"
   type        = string
