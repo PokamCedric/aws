@@ -5,7 +5,7 @@ resource "aws_security_group" "sg" {
   vpc_id      = var.vpc_id
   ingress = [
     for port in var.ports : {
-      description      = "Allow ${port} traffic"
+      description      = "Allow traffic on port ${port}"
       from_port        = port
       to_port          = port
       protocol         = "tcp"
