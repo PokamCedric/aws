@@ -50,5 +50,5 @@ module "db_security_group" {
   name        = "db-sg"
   description = "Security Group for the Database Server"
   vpc_id      = local.vpc_id
-  ports       = [{ id = 3306, source = module.web_security_group.id }]
+  ports       = [{ id = 3306, source = [module.web_security_group.id] }]
 }
