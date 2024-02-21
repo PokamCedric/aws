@@ -45,6 +45,17 @@ variable "vpc_tags" {
   default     = {}
 }
 
+variable "ipv4_ipam_pool_id" {
+  description = "(Optional) The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR"
+  type        = string
+  default     = null
+}
+
+variable "ipv4_netmask_length" {
+  description = "(Optional) The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a ipv4_ipam_pool_id"
+  type        = number
+  default     = null
+}
 ################################################################################
 # Publiс Subnets
 ################################################################################
