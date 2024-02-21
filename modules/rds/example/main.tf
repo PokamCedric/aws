@@ -1,17 +1,23 @@
 module "network" {
   source = "../../network"
 
-  vpc_cidr             = "172.20.0.0/20"
-  enable_dns_support   = true
-  enable_dns_hostnames = true
-
-  azs_names       = slice(data.aws_availability_zones.azs.names, 0, 2)
-
-  private_subnets = [{ name = "db", cidrs = ["172.20.7.0/24", "172.20.8.0/24", "172.20.9.0/24"] }]
-
+  azs_count       = var.azs_count
+  vpc_cidr        = "172.20.0.0/20"
+  azs_names       = slice(data.aws_availability_zones.azs.names, 0, var.azs_count)
+  private_subnets = [{ name = "db", cidrs = ["172.20.7.0/24", "172.20.8.0/24"] }]
   vpc_tags = {
-    Name = "App-VPC"
+    Name = "Dev-VPC"
   }
+}
+
+module "security_group" {
+    source = "../../security-group"
+  
+
+  name        = "db-sg"
+  description = "Security Group for the Database Server"
+  vpc_id      = module.network.vpc_id
+  ports       = [{ id = 3306, source = ["0.0.0.0/0"] }]
 }
 
 output "azs_names" {
@@ -19,7 +25,10 @@ output "azs_names" {
 }
 
 module "rds" {
-    source = "../"
+  source = "../"
   
-  subnet_ids = module.network.private_subnet
+  subnet_ids = module.network.private_subnet_ids
+  security_group_ids = [module.security_group.id]
+  availability_zone = module.network.azs_names[0]
+  instance_identifier = "dev-rds-instance"
 }
