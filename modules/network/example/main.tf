@@ -5,7 +5,8 @@ module "network" {
   enable_dns_support   = true
   enable_dns_hostnames = true
 
-  azs_names = slice(data.aws_availability_zones.azs.names, 0, 3)
+  azs_count = var.az_count
+  azs_names = slice(data.aws_availability_zones.azs.names, 0, var.az_count)
 
   public_subnets = [
     { name = "web",
