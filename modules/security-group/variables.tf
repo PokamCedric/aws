@@ -23,15 +23,13 @@ variable "description" {
 
 variable "ports" {
   description = "Ports to allow traffic"
-  type        = list(number)
-  default     = []
+  type = list(object({
+    id : number
+    source : list(string)
+  }))
+  default = []
 }
 
-variable "source" {
-  description = "inbound sources"
-  type        = list(string)
-  default       = ["0.0.0.0/0"]
-}
 variable "tags" {
   description = "Additional tags for the security-group"
   type        = map(string)
