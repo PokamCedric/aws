@@ -51,10 +51,14 @@ output "public_subnet_ids" {
   value       = aws_subnet.public[*].id
 }
 
+output "public_subnet_map_public_ip_on_launch" {
+  description = "Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `true`"
+  value       = true
+}
+
 ################################################################################
 # Private Subnets
 ################################################################################
-
 output "private_subnets" {
   description = "List of private subnets"
   value       = var.private_subnets
@@ -66,3 +70,7 @@ output "private_subnet_ids" {
   value       = aws_subnet.private[*].id
 }
 
+output "private_subnet_map_public_ip_on_launch" {
+  description = "Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`"
+  value       = false
+}
