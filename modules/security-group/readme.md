@@ -17,7 +17,7 @@ locals {
 
 # Security Group for the Application Load Balancer
 module "alb_security_group" {
-  source = "../"
+  source = "path/to/modules/security-group"
 
   name        = "alb-sg"
   description = "Security Group for the Application Load Balancer"
@@ -30,7 +30,7 @@ module "alb_security_group" {
 
 # Security Group for the Bastion Host
 module "bh_security_group" {
-  source = "../"
+  source = "path/to/modules/security-group"
 
   name        = "bh-sg"
   description = "Security Group for the Bastion Host"
@@ -40,7 +40,7 @@ module "bh_security_group" {
 
 # Security Group for the Web Server
 module "web_security_group" {
-  source = "../"
+  source = "path/to/modules/security-group"
 
   name        = "Webserver-sg"
   description = "Security Group for the Web Server"
@@ -54,7 +54,7 @@ module "web_security_group" {
 
 # Security Group for the Database Server
 module "db_security_group" {
-  source = "../"
+  source = "path/to/modules/security-group"
 
   name        = "db-sg"
   description = "Security Group for the Database Server"
