@@ -20,6 +20,11 @@ variable "azs_names" {
   default     = []
 }
 
+variable "azs_count" {
+  default     = 1
+  description = "Number of availability zones to use"
+  type        = number
+}
 
 variable "enable_dns_hostnames" {
   description = "Should be true to enable DNS hostnames in the VPC"

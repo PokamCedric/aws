@@ -27,6 +27,11 @@ output "azs_names" {
   value       = var.azs_names
 }
 
+output "azs_count" {
+  description = "A list of availability zones specified as argument to this module"
+  value       = var.azs_count
+}
+
 output "enable_dns_support" {
   description = "Whether or not the VPC has DNS support"
   value       = try(aws_vpc.this.enable_dns_support, null)
