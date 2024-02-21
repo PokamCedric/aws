@@ -17,7 +17,6 @@ module "alb_security_group" {
     { id = 80, source = ["0.0.0.0/0"] },
     { id = 443, source = ["0.0.0.0/0"] }
   ]
-
 }
 
 # Security Group for the Bastion Host
@@ -42,7 +41,6 @@ module "web_security_group" {
     { id = 443, source = [module.alb_security_group.id] },
     { id = 22, source = [module.bh_security_group.id] }
   ]
-
 }
 
 # Security Group for the Database Server
@@ -53,5 +51,4 @@ module "db_security_group" {
   description = "Security Group for the Database Server"
   vpc_id      = local.vpc_id
   ports       = [{ id = 3306, source = module.web_security_group.id }]
-
 }

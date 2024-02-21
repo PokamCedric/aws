@@ -3,7 +3,7 @@
 This goal of this module is to simplify the use of security groups  <br />  <br />
 
 ## How To Use
-The example use case is showed in the image below
+The example use case is showed in the image below <br /> <br />
 ![3-Tier-App-sg](./images/3-Tier-App-sg.png)  <br />
 
 ```c++
