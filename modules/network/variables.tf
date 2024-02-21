@@ -1,9 +1,3 @@
-variable "region" {
-  description = "Region we need to deploy the infrastructure"
-  type        = string
-  default     = "us-east-1"
-}
-
 ################################################################################
 # VPC
 ################################################################################
@@ -56,6 +50,7 @@ variable "ipv4_netmask_length" {
   type        = number
   default     = null
 }
+
 ################################################################################
 # Publiс Subnets
 ################################################################################
@@ -68,6 +63,15 @@ variable "public_subnets" {
   default = []
 }
 
+variable "public_subnet_map_public_ip_on_launch" {
+  description = "Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `true`"
+  type        = bool
+  default     = true
+}
+
+################################################################################
+# Private Subnets
+################################################################################
 variable "private_subnets" {
   description = "This are the private Subnets properties"
   type = list(object({
@@ -77,7 +81,7 @@ variable "private_subnets" {
   default = []
 }
 
-variable "map_public_ip_on_launch" {
+variable "private_subnet_map_public_ip_on_launch" {
   description = "Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`"
   type        = bool
   default     = false
