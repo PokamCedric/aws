@@ -46,6 +46,11 @@ variable "db_name" {
   default     = "application-db"
   description = "Database instance Name"
   type        = string
+
+  validation {
+    condition     = can(regex("^[A-Za-z]([A-Za-z0-9])*", var.db_name))
+    error_message = "DBName must begin with a letter and contain only alphanumeric characters"
+  }
 }
 
 variable "storage" {
