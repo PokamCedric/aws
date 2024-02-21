@@ -1,24 +1,34 @@
-output "ports" {
-    description = "List of Ports"
-    value = var.ports
-}
-
-output "sg_tags" {
-  description = "Additional tags for the security group"
-  value     = var.sg_tags
-}
-
 output "vpc_id" {
-  description = "VPC-id"
-  value     = var.vpc_id
+  description = "VPC id"
+  value       = null
 }
 
-output "sg_name" {
-  description = "VPC-id"
-  value     = var.sg_name
+output "name" {
+  description = "Security Group name"
+  value       = "sg"
 }
 
-output "sg_desc" {
-  description = "VPC-id"
-  value     = var.sg_desc
+output "description" {
+  description = "Security Group description"
+  value       = "Allow traffic on the given ports"
+}
+
+output "ports" {
+  description = "Ports to allow traffic"
+  value       = []
+}
+
+output "source" {
+  description = "inbound sources"
+  value       = ["0.0.0.0/0"]
+}
+
+output "tags" {
+  description = "Additional tags for the security-group"
+  value       = {}
+}
+
+output "id" {
+  description = "Security-group id"
+  value       = aws_security_group.sg.id
 }

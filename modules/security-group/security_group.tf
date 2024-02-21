@@ -1,7 +1,7 @@
 
 resource "aws_security_group" "sg" {
-  name        = var.sg_name
-  description = var.sg_desc
+  name        = var.name
+  description = var.description
   vpc_id      = var.vpc_id
   ingress = [
     for port in var.ports : {
@@ -9,7 +9,7 @@ resource "aws_security_group" "sg" {
       from_port        = port
       to_port          = port
       protocol         = "tcp"
-      cidr_blocks      = ["0.0.0.0/0"]
+      cidr_blocks      = var.source
       ipv6_cidr_blocks = []
       prefix_list_ids  = []
       security_groups  = []
@@ -23,5 +23,5 @@ resource "aws_security_group" "sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = var.sg_tags
+  tags = var.tags
 }
