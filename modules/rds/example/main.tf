@@ -11,8 +11,8 @@ module "network" {
 }
 
 module "security_group" {
-    source = "../../security-group"
-  
+  source = "../../security-group"
+
 
   name        = "db-sg"
   description = "Security Group for the Database Server"
@@ -26,9 +26,9 @@ output "azs_names" {
 
 module "rds" {
   source = "../"
-  
-  subnet_ids = module.network.private_subnet_ids
-  security_group_ids = [module.security_group.id]
-  availability_zone = module.network.azs_names[0]
+
+  subnet_ids          = module.network.private_subnet_ids
+  security_group_ids  = [module.security_group.id]
+  availability_zone   = module.network.azs_names[0]
   instance_identifier = "dev-rds-instance"
 }

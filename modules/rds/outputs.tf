@@ -17,7 +17,7 @@ output "subnet_ids" {
 }
 
 output "subnet_group_tags" {
-  value = var.subnet_group_tags
+  value       = var.subnet_group_tags
   description = "Database subnet group tags"
 }
 
