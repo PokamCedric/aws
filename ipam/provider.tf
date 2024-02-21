@@ -15,6 +15,6 @@ provider "aws" {
   alias  = "useast2"   # for the 2nd VPC
 }
 
-provider awscc {
+provider "awscc" {
   region = "us-east-1"
 }
