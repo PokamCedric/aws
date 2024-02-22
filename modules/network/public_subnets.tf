@@ -1,8 +1,11 @@
 # local
 locals {
-  azs_count            = var.azs_count
-  public_subnets_empty = length(var.public_subnets) == 0
-  public_subnets_count = local.public_subnets_empty ? 0 : length(var.public_subnets) * length(var.public_subnets[0].cidrs)
+  azs_count                   = var.azs_count
+  public_subnets_empty        = length(var.public_subnets) == 0
+  private_subnets_empty       = length(var.private_subnets) == 0
+  no_public_or_privat_subnets = local.public_subnets_empty || local.private_subnets_empty
+  public_subnets_count        = local.public_subnets_empty ? 0 : length(var.public_subnets) * length(var.public_subnets[0].cidrs)
+
 }
 
 # Create public-web-subnets
