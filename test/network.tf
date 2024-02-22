@@ -12,3 +12,7 @@ module "network" {
     Name = "Dev-VPC"
   }
 }
+
+locals {
+  vpc_id = module.network.vpc_id
+}

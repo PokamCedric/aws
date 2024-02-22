@@ -1,7 +1,3 @@
-locals {
-  vpc_id = module.network.vpc_id
-}
-
 # Security Group for the Application Load Balancer
 module "alb_security_group" {
   source = "../modules/security-group"
