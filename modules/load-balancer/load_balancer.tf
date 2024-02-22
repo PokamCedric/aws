@@ -1,5 +1,4 @@
-# create application load balancer
-# terraform aws create application load balancer
+# Create load balancer
 resource "aws_lb" "load_balancer" {
   name               = var.lb_name
   internal           = var.internal
@@ -8,11 +7,9 @@ resource "aws_lb" "load_balancer" {
 
   dynamic "subnet_mapping" {
 
-    # for_each = toset(var.subnet_ids)
-    for_each = { for s in var.subnet_ids : index(var.subnet_ids, s) => s }
-
+    for_each = toset(var.subnet_ids)
     content {
-      subnet_id = each.value
+      subnet_id = subnet_mapping.value
     }
   }
 
@@ -20,3 +17,4 @@ resource "aws_lb" "load_balancer" {
 
   tags = var.lb_tags
 }
+

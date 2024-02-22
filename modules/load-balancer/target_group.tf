@@ -1,5 +1,4 @@
-# create target group
-# terraform aws create target group
+# Create target group
 resource "aws_lb_target_group" "alb_target_group" {
   name        = var.tg_name
   target_type = var.tg_type
