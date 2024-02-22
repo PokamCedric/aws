@@ -39,6 +39,11 @@ output "lb_tags" {
 ################################################################################
 # Target Group
 ################################################################################
+output "lb_target_group_arn" {
+  value       = aws_lb_target_group.target_group.arn
+  description = "Target Group arn"
+}
+
 output "vpc_id" {
   value       = var.vpc_id
   description = "VPC ID"

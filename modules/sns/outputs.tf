@@ -1,3 +1,8 @@
+output "topic_arn" {
+  value       = aws_sns_topic.this.arn
+  description = "SNS Topic arn"
+}
+
 output "name" {
   value       = var.name
   description = "SNS topic name"
