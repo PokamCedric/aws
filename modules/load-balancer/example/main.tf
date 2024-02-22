@@ -31,7 +31,7 @@ module "alb" {
   source = "../"
 
   # Setup Load Balancer
-  security_group_ids = [alb_security_group.id]
+  security_group_ids = [module.alb_security_group.id]
   subnet_ids         = module.network.public_subnet_ids
 
   # Setup Target Group
@@ -40,6 +40,6 @@ module "alb" {
   # Set listeners
   alb_fa_listener_count = 1
   ra_listener_count     = 1
-  certificate_arn       =  # Add your certificate arn here
+  # certificate_arn       =  # Add your certificate arn here
   
 }
