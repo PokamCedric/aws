@@ -14,7 +14,7 @@ resource "aws_lb_listener" "alb_fa_listener" {
 
   default_action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.alb_target_group.arn
+    target_group_arn = aws_lb_target_group.target_group.arn
   }
 }
 
@@ -29,7 +29,7 @@ resource "aws_lb_listener" "nlb_fa_listener" {
 
   default_action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.alb_target_group.arn
+    target_group_arn = aws_lb_target_group.target_group.arn
   }
 }
 
@@ -40,7 +40,7 @@ resource "aws_lb_listener" "glb_fa_listener" {
 
   default_action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.alb_target_group.arn
+    target_group_arn = aws_lb_target_group.target_group.arn
   }
 }
 

@@ -1,5 +1,5 @@
 # Create target group
-resource "aws_lb_target_group" "alb_target_group" {
+resource "aws_lb_target_group" "target_group" {
   name        = var.tg_name
   target_type = var.tg_type
   port        = var.tg_port.id
