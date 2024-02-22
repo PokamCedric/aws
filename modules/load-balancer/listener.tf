@@ -49,7 +49,7 @@ resource "aws_lb_listener" "glb_fa_listener" {
 ################################################################################
 
 resource "aws_lb_listener" "ra_listener" {
-  load_balancer_arn = aws_lb.application_load_balancer.arn
+  load_balancer_arn = aws_lb.load_balancer.arn
   count             = var.ra_listener_count
   port              = 80
   protocol          = "HTTP"
