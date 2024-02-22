@@ -12,6 +12,6 @@ module "alb" {
   # Set listeners
   alb_fa_listener_count = 1
   ra_listener_count     = 1
-  certificate_arn       =  # Add your certificate arn here
+#  certificate_arn       =  # Add your certificate arn here
   
 }
