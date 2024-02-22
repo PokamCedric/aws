@@ -2,76 +2,76 @@
 # Load Balancer
 ################################################################################
 variable "lb_name" {
-  default = "dev-alb"
+  default     = "dev-alb"
   description = "Load Balancer Name"
-  type = string
+  type        = string
 }
 
 variable "internal" {
-  default = false  # False because the Load Balancer will face internet
+  default     = false # False because the Load Balancer will face internet
   description = "When internal the Load Balancer doesn't face internet"
-  type = bool
+  type        = bool
 }
 
 variable "lb_type" {
-  default = "application"
+  default     = "application"
   description = "Load Balancer type"
-  type = string
+  type        = string
 }
 
 variable "security_group_ids" {
-  default = []
+  default     = []
   description = "Load Balancer security group ids"
-  type = list(string)
+  type        = list(string)
 }
 
 variable "subnet_ids" {
-  default = []
+  default     = []
   description = "Load Balancer subnet mapping"
-  type = list(string)
+  type        = list(string)
 }
 
 variable "deletion_protection" {
-  default = false
+  default     = false
   description = "Protect the Load Balancer from deletion"
-  type = bool
+  type        = bool
 }
 
 variable "lb_tags" {
-  default = { Name = "dev-alb" }
+  default     = { Name = "dev-alb" }
   description = "Additional Load Balancer tags"
-  type = map(string)
+  type        = map(string)
 }
 
 ################################################################################
 # Target Group
 ################################################################################
 variable "vpc_id" {
-  default = null
+  default     = null
   description = "VPC ID"
-  type = string
+  type        = string
 }
 
 variable "tg_name" {
-  default = "dev-tg"
+  default     = "dev-tg"
   description = "Target Group Name"
-  type = string
+  type        = string
 }
 
 variable "tg_type" {
-  default = "instance"
+  default     = "instance"
   description = "Target Group type"
-  type = string
+  type        = string
 }
 
 variable "tg_port" {
   default = {
-    id = 80
+    id       = 80
     protocol = "HTTP"
   }
   description = "Target Group port"
   type = object({
-    id = number
+    id       = number
     protocol = string
   })
 }
@@ -81,81 +81,81 @@ variable "tg_port" {
 ################################################################################
 variable "hc_port" {
   default = {
-    id = "traffic-port"
+    id       = "traffic-port"
     protocol = "HTTP"
   }
   description = "Health Check port"
   type = object({
-    id = string
+    id       = string
     protocol = string
   })
 }
 
 variable "healthy_threshold" {
-  default = 5
+  default     = 5
   description = "Health Check healthy threshold"
-  type = number
+  type        = number
 }
 
 variable "unhealthy_threshold" {
-  default = 2
+  default     = 2
   description = "Health Check unhealthy threshold"
-  type = number
+  type        = number
 }
 
 variable "interval" {
-  default = 30
+  default     = 30
   description = "Health Check interval"
-  type = number
+  type        = number
 }
 
 variable "timeout" {
-  default = 5
+  default     = 5
   description = "Health Check timeout"
-  type = number
+  type        = number
 }
 
 variable "matcher" {
-  default = "200,301,302"
+  default     = "200,301,302"
   description = "Health Check matcher"
-  type = string
+  type        = string
 }
 
 variable "path" {
-  default = "/"
+  default     = "/"
   description = "Health Check path"
-  type = string
+  type        = string
 }
 
 ################################################################################
 # Listeners
 ################################################################################
 variable "certificate_arn" {
-  default = null
+  default     = null
   description = "SSL Certificate arn"
-  type = string
+  type        = string
 }
 
 variable "alb_fa_listener_count" {
-  default = 0
+  default     = 0
   description = "Application LB Forward Action Listener count"
-  type = number
+  type        = number
 }
 
 variable "nlb_fa_listener_count" {
-  default = 0
+  default     = 0
   description = "Network LB Forward Action Listener count"
-  type = number
+  type        = number
 }
 
 variable "glb_fa_listener_count" {
-  default = 0
+  default     = 0
   description = "Gateway LB Forward Action Listener count"
-  type = number
+  type        = number
 }
 
 variable "ra_listener_count" {
-  default = 0
+  default     = 0
   description = "Redirect Action Listener count"
-  type = number
+  type        = number
 }

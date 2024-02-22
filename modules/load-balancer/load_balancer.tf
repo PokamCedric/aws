@@ -8,15 +8,15 @@ resource "aws_lb" "load_balancer" {
 
   dynamic "subnet_mapping" {
 
-      # for_each = toset(var.subnet_ids)
-      for_each = { for s in var.subnet_ids: index(var.subnet_ids, s) => s }
+    # for_each = toset(var.subnet_ids)
+    for_each = { for s in var.subnet_ids : index(var.subnet_ids, s) => s }
 
-      content {
-         subnet_id     = each.value
-      }
+    content {
+      subnet_id = each.value
+    }
   }
 
   enable_deletion_protection = var.deletion_protection
 
-  tags   = var.lb_tags
+  tags = var.lb_tags
 }

@@ -1,9 +1,9 @@
 module "network" {
   source = "../../network"
 
-  azs_count       = var.azs_count
-  vpc_cidr        = "172.20.0.0/20"
-  azs_names       = slice(data.aws_availability_zones.azs.names, 0, var.azs_count)
+  azs_count      = var.azs_count
+  vpc_cidr       = "172.20.0.0/20"
+  azs_names      = slice(data.aws_availability_zones.azs.names, 0, var.azs_count)
   public_subnets = [{ name = "elb", cidrs = ["172.20.0.0/24", "172.20.1.0/24"] }]
   vpc_tags = {
     Name = "Dev-VPC"
@@ -35,11 +35,11 @@ module "alb" {
   subnet_ids         = module.network.public_subnet_ids
 
   # Setup Target Group
-  vpc_id                = local.vpc_id
+  vpc_id = local.vpc_id
 
   # Set listeners
   alb_fa_listener_count = 1
   ra_listener_count     = 1
   # certificate_arn       =  # Add your certificate arn here
-  
+
 }
