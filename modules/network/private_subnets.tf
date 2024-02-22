@@ -1,6 +1,7 @@
 # local
 locals {
-  private_subnets_count = length(var.private_subnets) * local.azs_count
+  private_subnets_types_count = length(var.private_subnets)
+  private_subnets_count       = local.private_subnets_types_count * local.azs_count
 }
 
 # Create private-app-subnets

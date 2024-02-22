@@ -4,8 +4,8 @@ variable "region" {
   default     = "us-east-1"
 }
 
-variable "az_count" {
-  default     = 1
-  description = "Number of AZ we need"
+variable "azs_count" {
+  default     = 3
+  description = "Number of AZs we need"
   type        = number
 }

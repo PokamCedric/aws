@@ -1,7 +1,6 @@
 ################################################################################
 # VPC
 ################################################################################
-
 variable "vpc_cidr" {
   description = "(Optional) The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length` & `ipv4_ipam_pool_id`"
   type        = string
@@ -24,6 +23,11 @@ variable "azs_count" {
   default     = 1
   description = "Number of availability zones to use"
   type        = number
+
+  validation {
+    condition = var.azs_count > 0
+    error_message = "Number of Availability Zone should be greater zero"
+  }
 }
 
 variable "enable_dns_hostnames" {
@@ -39,7 +43,7 @@ variable "enable_dns_support" {
 }
 
 variable "vpc_tags" {
-  description = "Additional tags for the VPC"
+  description = "VPC tags"
   type        = map(string)
   default     = {}
 }
@@ -90,4 +94,13 @@ variable "private_subnet_map_public_ip_on_launch" {
   description = "Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`"
   type        = bool
   default     = false
+}
+
+################################################################################
+# IGW
+################################################################################
+variable "igw_tags" {
+  default     = { Name = "Dev IGW" }
+  description = "IGW tags"
+  type        = map(string)
 }
