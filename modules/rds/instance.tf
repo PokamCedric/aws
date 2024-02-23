@@ -5,8 +5,8 @@ resource "aws_db_instance" "this" {
   db_name                 = var.db_name
   engine                  = var.engine
   engine_version          = var.engine_version
-  username                = "foo"
-  password                = "foobarbaz"
+  username                = var.username
+  password                = var.password
   instance_class          = var.instance_class
   skip_final_snapshot     = true # avoid creating snapshot when we destroy
   availability_zone       = var.availability_zone

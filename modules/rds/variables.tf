@@ -43,7 +43,7 @@ variable "availability_zone" {
 }
 
 variable "db_name" {
-  default     = "application-db"
+  default     = "applicationdb"
   description = "Database instance Name"
   type        = string
 
@@ -51,6 +51,18 @@ variable "db_name" {
     condition     = can(regex("^[A-Za-z]([A-Za-z0-9])*", var.db_name))
     error_message = "DBName must begin with a letter and contain only alphanumeric characters"
   }
+}
+
+variable "username" {
+  default     = "terraform-user"
+  description = "Database instance username"
+  type        = string
+}
+
+variable "password" {
+  default     = "password"
+  description = "Database instance password"
+  type        = string
 }
 
 variable "storage" {

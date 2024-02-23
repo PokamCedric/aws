@@ -50,6 +50,11 @@ output "public_subnets" {
   value       = var.public_subnets
 }
 
+output "out_public_subnets" {
+  description = "List of public subnets"
+  value       = aws_subnet.public[*]
+}
+
 output "public_subnet_ids" {
   description = "List of IDs of public subnets"
   value       = aws_subnet.public[*].id
@@ -68,6 +73,10 @@ output "private_subnets" {
   value       = var.private_subnets
 }
 
+output "out_private_subnets" {
+  description = "List of private subnets"
+  value       = aws_subnet.private[*]
+}
 
 output "private_subnet_ids" {
   description = "List of IDs of private subnets"

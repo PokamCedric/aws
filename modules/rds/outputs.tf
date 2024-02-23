@@ -39,6 +39,16 @@ output "db_name" {
   description = "Database instance Name"
 }
 
+output "username" {
+  value       = var.username
+  description = "Database instance username"
+}
+
+output "password" {
+  value       = var.password
+  description = "Database instance password"
+}
+
 output "storage" {
   value       = var.storage
   description = "Database instance storage"
