@@ -27,16 +27,3 @@ output "file_destination_path" {
   value       = var.file_destination_path
   description = "File Destination Path"
 }
-
-################################################################################
-# IAM
-################################################################################
-output "iam_policy_name" {
-  value       = var.iam_policy_name
-  description = "iam policy name"
-}
-
-output "iam_role_name" {
-  value       = var.iam_role_name
-  description = "iam role name"
-}

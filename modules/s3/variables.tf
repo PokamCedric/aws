@@ -32,18 +32,3 @@ variable "file_destination_path" {
   description = "File Destination Path"
   type        = string
 }
-
-################################################################################
-# IAM
-################################################################################
-variable "iam_policy_name" {
-  default     = null
-  description = "iam policy name"
-  type        = string
-}
-
-variable "iam_role_name" {
-  default     = null
-  description = "iam role name"
-  type        = string
-}
