@@ -9,10 +9,10 @@ resource "aws_security_group" "this" {
       from_port        = port.id
       to_port          = port.id
       protocol         = "tcp"
-      cidr_blocks      = port.source
+      cidr_blocks      = port.cidr_blocks
       ipv6_cidr_blocks = []
       prefix_list_ids  = []
-      security_groups  = []
+      security_groups  = port.source
       self             = false
     }
   ]

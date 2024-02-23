@@ -10,19 +10,21 @@ variable "profile" {
   default     = "terraform-user"
 }
 
-################################################################################
-# VPC
-################################################################################
+variable "azs_count" {
+  default     = 2
+  description = "Number of availability zones to use"
+  type        = number
+}
 
+################################################################################
+# Network
+################################################################################
 variable "vpc_cidr" {
-  description = "(Optional) The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length` & `ipv4_ipam_pool_id`"
+  description = "CIDR block for the VPC."
   type        = string
   default     = "10.0.0.0/16"
 }
 
-################################################################################
-# Publiс Subnets
-################################################################################
 variable "public_subnets" {
   description = "This are the public Subnets properties"
   type = list(object({
@@ -35,9 +37,6 @@ variable "public_subnets" {
   ]
 }
 
-################################################################################
-# Private Subnets
-################################################################################
 variable "private_subnets" {
   description = "This are the private Subnets properties"
   type = list(object({

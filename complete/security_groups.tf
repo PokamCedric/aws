@@ -6,8 +6,8 @@ module "alb_security_group" {
   description = "Security Group for the Application Load Balancer"
   vpc_id      = local.vpc_id
   ports = [
-    { id = 80, source = ["0.0.0.0/0"] },
-    { id = 443, source = ["0.0.0.0/0"] }
+    { id = 80, cidr_blocks = ["0.0.0.0/0"], source = null },
+    { id = 443, cidr_blocks = ["0.0.0.0/0"], source = null }
   ]
 }
 
@@ -18,7 +18,7 @@ module "bh_security_group" {
   name        = "bh-sg"
   description = "Security Group for the Bastion Host"
   vpc_id      = local.vpc_id
-  ports       = [{ id = 22, source = ["0.0.0.0/0"] }]
+  ports       = [{ id = 22, cidr_blocks = ["192.168.2.144/32"], source = null }]
 }
 
 # Security Group for the Web Server
@@ -29,9 +29,9 @@ module "web_security_group" {
   description = "Security Group for the Web Server"
   vpc_id      = local.vpc_id
   ports = [
-    { id = 80, source = [module.alb_security_group.id] },
-    { id = 443, source = [module.alb_security_group.id] },
-    { id = 22, source = [module.bh_security_group.id] }
+    { id = 80, cidr_blocks = null, source = [module.alb_security_group.id] },
+    { id = 443, cidr_blocks = null, source = [module.alb_security_group.id] },
+    { id = 22, cidr_blocks = null, source = [module.bh_security_group.id] }
   ]
 }
 
@@ -42,5 +42,5 @@ module "db_security_group" {
   name        = "db-sg"
   description = "Security Group for the Database Server"
   vpc_id      = local.vpc_id
-  ports       = [{ id = 3306, source = module.web_security_group.id }]
+  ports       = [{ id = 3306, cidr_blocks = null, source = [module.web_security_group.id] }]
 }
