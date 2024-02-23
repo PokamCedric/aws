@@ -33,7 +33,7 @@ variable "public_subnets" {
   }))
   default = [
     { name = "", # End name would be "public--subnet-azname"
-    cidrs = ["10.0.0.0/24", "10.0.1.0/24"] }
+    cidrs = [cidrsubnet("10.0.0.0/16", 8, 0), cidrsubnet("10.0.0.0/16", 8, 1)] }
   ]
 }
 
@@ -45,9 +45,9 @@ variable "private_subnets" {
   }))
   default = [
     { name = "app", # End name would be "private-app-subnet-azname"
-    cidrs = ["10.0.2.0/24", "10.0.3.0/24"] },
+    cidrs = [cidrsubnet("10.0.0.0/16", 8, 2), cidrsubnet("10.0.0.0/16", 8, 3)] },
     { name = "db", # End name would be "private-db-subnet-azname"
-    cidrs = ["10.0.4.0/24", "10.0.5.0/24"] }
+    cidrs = [cidrsubnet("10.0.0.0/16", 8, 4), cidrsubnet("10.0.0.0/16", 8, 5)] }
   ]
 }
 
