@@ -10,8 +10,7 @@ module "rds" {
   security_group_ids  = [module.db_security_group.id]
   availability_zone   = module.network.azs_names[1] # second az for the master
   instance_identifier = "dev-rds-db"
-  engine_version      = "5.7.36"
   username            = "admin"
-  password            = "admin"
+  password            = "terraform-user"
   storage             = 20
 }

@@ -22,7 +22,7 @@ variable "description" {
 }
 
 variable "ports" {
-  default = []
+  default     = []
   description = "Ports to allow traffic"
   type = list(object({
     id : number

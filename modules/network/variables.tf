@@ -25,7 +25,7 @@ variable "azs_count" {
   type        = number
 
   validation {
-    condition = var.azs_count > 0
+    condition     = var.azs_count > 0
     error_message = "Number of Availability Zone should be greater zero"
   }
 }
