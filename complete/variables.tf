@@ -33,7 +33,7 @@ variable "public_subnets" {
   }))
   default = [
     { name = "", # End name would be "public--subnet-azname"
-    cidrs = [cidrsubnet("10.0.0.0/16", 8, 0), cidrsubnet("10.0.0.0/16", 8, 1)] }
+    cidrs = ["10.0.0.0/24", "10.0.1.0/24"] }
   ]
 }
 
@@ -45,9 +45,9 @@ variable "private_subnets" {
   }))
   default = [
     { name = "app", # End name would be "private-app-subnet-azname"
-    cidrs = [cidrsubnet("10.0.0.0/16", 8, 2), cidrsubnet("10.0.0.0/16", 8, 3)] },
+    cidrs = ["10.0.2.0/24", "10.0.3.0/24"] },
     { name = "db", # End name would be "private-db-subnet-azname"
-    cidrs = [cidrsubnet("10.0.0.0/16", 8, 4), cidrsubnet("10.0.0.0/16", 8, 5)] }
+    cidrs = ["10.0.4.0/24", "10.0.5.0/24"] }
   ]
 }
 
@@ -76,4 +76,63 @@ variable "db_sg_ports" {
   description = "Security Group ports for the Database Server"
   type        = list(number)
   default     = [80, 443]
+}
+
+################################################################################
+# IAM
+################################################################################
+variable "role" {
+  default = {
+    name        = "fleetcart_web_role"
+    description = null
+    body = {
+      Version = "2012-10-17"
+      Statement = [
+        {
+          Action = "sts:AssumeRole"
+          Effect = "Allow"
+          Sid    = ""
+          Principal = {
+            Service = "ec2.amazonaws.com"
+          }
+        },
+      ]
+    }
+  }
+  description = "iam role"
+  type = object({
+    name        = string
+    description = string
+    body        = any
+  })
+}
+
+variable "policy" {
+  default = {
+    name        = "fleetcart_web_bucket_policy"
+    description = "Allow"
+    body = {
+      Version : "2012-10-17",
+      Statement : [
+        {
+          Effect : "Allow",
+          Action : [
+            "s3:GetObject",
+            "s3:ListBucket",
+          ],
+          Resource : [
+            "arn:aws:s3:::*/*",
+            "arn:aws:s3:::mydemoacloudgurus3bucket",
+            "arn:aws:s3:::cedricpokam-fleetcart-bucket"
+          ]
+        }
+      ]
+    }
+  }
+  description = "iam policy"
+  type = object({
+    name        = string
+    description = string
+    body        = any
+  })
 }

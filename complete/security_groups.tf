@@ -18,7 +18,7 @@ module "bh_security_group" {
   name        = "bh-sg"
   description = "Security Group for the Bastion Host"
   vpc_id      = local.vpc_id
-  ports       = [{ id = 22, cidr_blocks = ["192.168.2.144/32"], source = null }]
+  ports       = [{ id = 22, cidr_blocks = ["0.0.0.0/0"], source = null }]
 }
 
 # Security Group for the Web Server
