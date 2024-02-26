@@ -22,3 +22,8 @@ variable "policy" {
   })
 }
 
+variable "instance_profile" {
+  default     = null
+  description = "instance profile name"
+  type        = string
+}
