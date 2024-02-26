@@ -60,13 +60,13 @@ variable "username" {
 }
 
 variable "password" {
-  default     = "password"
+  default     = "DB..!" # Not for rds but for administration
   description = "Database instance password"
   type        = string
 }
 
 variable "storage" {
-  default     = 10
+  default     = 20
   description = "Database instance storage"
   type        = number
 }
@@ -78,7 +78,7 @@ variable "multi_az" {
 }
 
 variable "instance_class" {
-  default     = "db.t2.micro"
+  default     = "db.t3.micro"
   description = "Database instance class"
   type        = string
 }
@@ -96,7 +96,7 @@ variable "engine" {
 }
 
 variable "engine_version" {
-  default     = "8.0.31"
+  default     = "5.7"
   description = "Database instance engine version"
   type        = string
 }

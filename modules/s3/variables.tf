@@ -10,7 +10,6 @@ variable "environment" {
 variable "bucket_name" {
   default     = null
   description = "Bucket name"
-
 }
 
 variable "bucket_tags" {
