@@ -6,7 +6,7 @@ module "instance" {
   instance_type        = "t2.micro"
   iam_instance_profile = module.iam_bucket_role_policy.instance_profile
   subnet_id            = module.network.public_subnet_ids[0]
-  key_name             = aws_key_pair.webserver-key.key_name
+  key_name             = aws_key_pair.webserver_key.key_name
   security_group_ids = [
     module.alb_security_group.id,
     module.bh_security_group.id,
