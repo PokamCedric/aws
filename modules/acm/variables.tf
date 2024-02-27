@@ -9,9 +9,3 @@ variable "alternative_names" {
   description = "subdomain names"
   type        = list(string)
 }
-
-variable "record_fqdns" {
-  default     = []
-  description = "record fqdns"
-  type        = list(string)
-}
