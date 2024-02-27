@@ -46,7 +46,7 @@ module "asg" {
 
   depends_on = [module.network, module.security_group, module.sns]
   # Launch template setup
-  ami_id   = "ami-ami-07761f3ae34c4478d" # Amazon Linux 2
+  ami_id   = "ami-07761f3ae34c4478d" # Amazon Linux 2
   key_name = aws_key_pair.webserver-key.key_name
 
   network = {

@@ -40,7 +40,7 @@ output "lb_tags" {
 # Target Group
 ################################################################################
 output "lb_target_group_arn" {
-  value       = aws_lb_target_group.target_group.arn
+  value       = aws_lb_target_group.this.arn
   description = "Target Group arn"
 }
 
@@ -100,6 +100,14 @@ output "matcher" {
 output "path" {
   value       = var.path
   description = "Health Check path"
+}
+
+################################################################################
+# Target Group Attachment
+################################################################################
+output "target_instances" {
+  value     = var.target_instances
+  description = "Instances to attach"
 }
 
 ################################################################################
