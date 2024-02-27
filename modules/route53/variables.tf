@@ -4,8 +4,20 @@ variable "domain_name" {
   type        = string
 }
 
+variable "record_name" {
+  default     = null
+  description = "subdomain name"
+  type        = string
+}
 
-variable "domain_validation_options" {
-  default     = []
-  description = "domain validation options"
+variable "alb_dns_name" {
+  default     = null
+  description = "alb dns name"
+  type        = string
+}
+
+variable "alb_zone_id" {
+  default     = null
+  description = "alb hosted zone"
+  type        = string
 }
