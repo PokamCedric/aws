@@ -1,24 +1,35 @@
+################################################################################
+# Environment
+################################################################################
 variable "region" {
   description = "Region we need to deploy the infrastructure"
   type        = string
-  default     = "us-east-1"
 }
 
 variable "profile" {
   description = "AWS Profile user"
   type        = string
-  default     = "terraform-user"
 }
 
+variable "project_name" {
+  description = "Project Name"
+  type        = string
+}
+
+variable "environment" {
+  description = "Project Environment"
+  type        = string
+}
+
+################################################################################
+# Network
+################################################################################
 variable "azs_count" {
   default     = 2
   description = "Number of availability zones to use"
   type        = number
 }
 
-################################################################################
-# Network
-################################################################################
 variable "vpc_cidr" {
   description = "CIDR block for the VPC."
   type        = string
