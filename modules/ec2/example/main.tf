@@ -49,7 +49,7 @@ module "instance" {
   ami_id               = "ami-0e731c8a588258d0d"
   instance_type        = "t2.micro"
   iam_instance_profile = module.iam_bucket_role_policy.instance_profile_name
-  key_name             = aws_key_pair.webserver-key.key_name
+  key_name             = aws_key_pair.webserver_key.key_name
   security_group_ids   = [module.security_group.id]
   user_data_path       = templatefile("./install_jenkins.sh", {})
 
