@@ -43,15 +43,15 @@ module "security_group" {
 
 module "asg" {
   source = "../"
-  
-  depends_on = [ module.network, module.security_group, module.sns ]
+
+  depends_on = [module.network, module.security_group, module.sns]
   # Launch template setup
-  ami_id = "ami-0440d3b780d96b29d" # Amazon Linux 2023 AMI
-  key_name = aws_key_pair.webserver-key.key_name
+  ami_id   = "ami-07761f3ae34c4478d" # Amazon Linux 2
+  key_name = aws_key_pair.webserver_key.key_name
 
   network = {
     associate_public_ip_address = true
-    security_group_ids             = [module.security_group.id]
+    security_group_ids          = [module.security_group.id]
 
   }
 
@@ -59,14 +59,14 @@ module "asg" {
   subnet_ids = module.network.private_subnet_ids
   capacity = {
     desired_capacity = 2
-    min_size = 1
-    max_size = 2
+    min_size         = 1
+    max_size         = 2
   }
 
   # Auto scaling group notification setup
   topic = {
     enabled = true
-    arn = module.sns.topic_arn
+    arn     = module.sns.topic_arn
   }
 
 }

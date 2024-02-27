@@ -1,0 +1,12 @@
+# Environment
+region="your-region-name" 
+profile="your-profile-name"
+project_name = "your-project-name"
+environment = "your-project-environment-name"
+
+# ACM
+domain_name="your-domain.com"
+alternative_names=["*.your-domain.com"]
+
+# Route 53
+record_name = "your-sub domain" # exple "www"

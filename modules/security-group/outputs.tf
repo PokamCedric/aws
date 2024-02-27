@@ -18,11 +18,6 @@ output "ports" {
   value       = []
 }
 
-output "source" {
-  description = "inbound sources"
-  value       = ["0.0.0.0/0"]
-}
-
 output "tags" {
   description = "Additional tags for the security-group"
   value       = {}

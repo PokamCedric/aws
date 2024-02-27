@@ -4,4 +4,5 @@ resource "aws_internet_gateway" "igw" {
   depends_on = [aws_vpc.this]
 
   vpc_id = aws_vpc.this.id
+  tags   = var.igw_tags
 }

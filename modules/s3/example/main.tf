@@ -10,6 +10,4 @@ module "s3" {
 
   file_source_path      = "C:\\Users\\molar\\Downloads\\FleetCart.zip"
   file_destination_path = "FleetCart.zip"
-  iam_role_name         = "fleetcart_role"
-  iam_policy_name       = "fleetcart_bucket_policy"
 }

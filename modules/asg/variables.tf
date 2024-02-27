@@ -141,3 +141,12 @@ variable "topic" {
     arn     = string
   })
 }
+
+################################################################################
+# Target Group
+################################################################################
+variable "target_group_arns" {
+  default     = []
+  description = "Target Groups"
+  type        = list(string)
+}

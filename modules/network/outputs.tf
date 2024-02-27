@@ -45,10 +45,14 @@ output "enable_dns_hostnames" {
 ################################################################################
 # Publiс Subnets
 ################################################################################
-
 output "public_subnets" {
   description = "List of public subnets"
   value       = var.public_subnets
+}
+
+output "out_public_subnets" {
+  description = "List of public subnets"
+  value       = aws_subnet.public[*]
 }
 
 output "public_subnet_ids" {
@@ -69,6 +73,10 @@ output "private_subnets" {
   value       = var.private_subnets
 }
 
+output "out_private_subnets" {
+  description = "List of private subnets"
+  value       = aws_subnet.private[*]
+}
 
 output "private_subnet_ids" {
   description = "List of IDs of private subnets"
@@ -78,4 +86,12 @@ output "private_subnet_ids" {
 output "private_subnet_map_public_ip_on_launch" {
   description = "Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`"
   value       = false
+}
+
+################################################################################
+# IGW
+################################################################################
+output "igw_tags" {
+  value       = var.igw_tags
+  description = "IGW tags"
 }

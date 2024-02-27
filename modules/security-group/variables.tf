@@ -22,12 +22,13 @@ variable "description" {
 }
 
 variable "ports" {
+  default     = []
   description = "Ports to allow traffic"
   type = list(object({
     id : number
     source : list(string)
+    cidr_blocks : list(string)
   }))
-  default = []
 }
 
 variable "tags" {
