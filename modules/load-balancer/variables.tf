@@ -133,8 +133,8 @@ variable "path" {
 variable "target_instances" {
   default     = []
   description = "Instances to attach"
-  type        = list(object({
-    id = string
+  type = list(object({
+    id   = string
     port = number
   }))
 }
