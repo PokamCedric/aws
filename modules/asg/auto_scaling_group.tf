@@ -11,6 +11,8 @@ resource "aws_autoscaling_group" "this" {
     version = "$Latest"
   }
 
+  target_group_arns = var.target_group_arns
+
   tag {
     key                 = var.tag.key
     value               = var.tag.value
