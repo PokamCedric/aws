@@ -147,3 +147,16 @@ variable "policy" {
     body        = any
   })
 }
+
+################################################################################
+# ACM
+################################################################################
+variable "domain_name" {
+  description = "domain name"
+  type        = string
+}
+
+variable "alternative_names" {
+  description = "subdomain names"
+  type        = list(string)
+}

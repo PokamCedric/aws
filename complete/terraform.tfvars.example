@@ -3,3 +3,7 @@ region="your-region-name"
 profile="your-profile-name"
 project_name = "your-project-name"
 environment = "your-project-environment-name"
+
+# ACM
+domain_name="your-domain.com"
+alternative_names=["*.your-domain.com"]

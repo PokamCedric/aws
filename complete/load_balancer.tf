@@ -8,12 +8,12 @@ module "alb" {
 
   # Setup Target Group
   vpc_id = local.vpc_id
-  target_instances = [ for i in module.webserver[*]: {id = i.id, port = 80} ]
+  // target_instances = [for i in module.webserver[*] : { id = i.id, port = 80 }]
 
   # Set listeners
   alb_fa_listener_count = 1
   ra_listener_count     = 1
-  #  certificate_arn       =  # Add your certificate arn here
+  certificate_arn       = module.acm.certificate_arn
 
 }
 
