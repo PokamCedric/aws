@@ -157,14 +157,14 @@ variable "domain_name" {
 }
 
 variable "alternative_names" {
-  description = "subdomain names"
+  description = "sub domain names"
   type        = list(string)
 }
 
 ################################################################################
-# ROUTE%§
+# Route 53
 ################################################################################
 variable "record_name" {
-  description = "subdomain name"
+  description = "sub domain name"
   type        = string
 }

@@ -6,7 +6,7 @@ variable "domain_name" {
 
 variable "record_name" {
   default     = null
-  description = "subdomain name"
+  description = "sub domain name"
   type        = string
 }
 

@@ -6,6 +6,6 @@ variable "domain_name" {
 
 variable "alternative_names" {
   default     = []
-  description = "subdomain names"
+  description = "sub domain names"
   type        = list(string)
 }
