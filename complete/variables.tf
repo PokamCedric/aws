@@ -160,3 +160,11 @@ variable "alternative_names" {
   description = "subdomain names"
   type        = list(string)
 }
+
+################################################################################
+# ROUTE%§
+################################################################################
+variable "record_name" {
+  description = "subdomain name"
+  type        = string
+}
