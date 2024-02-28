@@ -4,9 +4,66 @@ profile="your-profile-name"
 project_name = "your-project-name"
 environment = "your-project-environment-name"
 
+# Network
+azs_count = 2
+vpc_cidr  = "10.0.0.0/16"
+public_subnets = [
+  { name = "", # End name would be "public--subnet-azname"
+  cidrs = ["10.0.0.0/24", "10.0.1.0/24"] }
+]
+
+private_subnets = [
+  { name = "app", # End name would be "private-app-subnet-azname"
+  cidrs = ["10.0.2.0/24", "10.0.3.0/24"] },
+  { name = "db", # End name would be "private-db-subnet-azname"
+  cidrs = ["10.0.4.0/24", "10.0.5.0/24"] }
+]
+
 # ACM
 domain_name="your-domain.com"
 alternative_names=["*.your-domain.com"]
 
 # Route 53
 record_name = "your-sub domain" # exple "www"
+
+
+# IAM
+role = {
+  name        = "web_role" # change name
+  description = null
+  body = {
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Sid    = ""
+        Principal = {
+          Service = "ec2.amazonaws.com"
+        }
+      },
+    ]
+  }
+}
+
+policy = {
+  name        = "web_bucket_policy" # change name
+  description = "Allow"
+  body = {
+    Version : "2012-10-17",
+    Statement : [
+      {
+        Effect : "Allow",
+        Action : [
+          "s3:GetObject",
+          "s3:ListBucket",
+        ],
+        Resource : [
+          "arn:aws:s3:::*/*",
+          "arn:aws:s3:::bucketforwebsitefile", # change bucket name
+          "arn:aws:s3:::bucketforwebsitedata" # change or remove bucket name
+        ]
+      }
+    ]
+  }
+}

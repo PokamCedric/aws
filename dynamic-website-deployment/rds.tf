@@ -8,7 +8,7 @@ module "rds" {
 
   subnet_ids          = local.db_subnets
   security_group_ids  = [module.db_security_group.id]
-  availability_zone   = module.network.azs_names[1] # second az for the master
+  availability_zone   = local.az_names[1] # second az for the master
   instance_identifier = "dev-rds-db"
   username            = "admin"
   password            = "terraform-user"

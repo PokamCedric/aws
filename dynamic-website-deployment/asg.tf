@@ -4,7 +4,7 @@ module "asg" {
 
   depends_on = [module.network, module.web_security_group]
   # Launch template setup
-  ami_id   = "ami-0b908975822d66f60" # AMI generated from Setup
+  ami_id   = var.ami
   key_name = aws_key_pair.webserver_key.key_name
 
   network = {
