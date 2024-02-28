@@ -1,6 +1,37 @@
-These are the prerequisites and Setup we probably need for all the projects
+## My Skills
+
+![Languages](https://skillicons.dev/icons?i=py,js,ts,dart,c,cs,cpp,)
+
+![Cloud Skills](https://skillicons.dev/icons?i=aws,dynamodb,bash,docker,linux,terraform,mysql,firebase)
+
+![DevOps Skills](https://skillicons.dev/icons?i=vscode,git,github,githubactions,gitlab,jenkins)
+
+![Fullstack Skills](https://skillicons.dev/icons?i=flutter,dotnet,nodejs,npm,nextjs,postman,react,redux,yarn)
+
+<br />
+
+## Table of Contents
+
+* [IP Address Manager (IPAM)](./ipam/)
+* [Deploy High Available and Fault Tolerant Dynamic Website](./dynamic-website-deployment/)
+* [Modules](./modules/)
+  * [Network Configuration of the Virtual Private Cloud (VPC)](./modules/network/)
+  * [Security Group](./modules/security-group/)
+  * [Identity and Access Management (IAM)](./modules/iam/)
+  * [Simple Storage Service (S3)](./modules/s3/)
+  * [Relational Database Service (RDS)](./modules/rds/)
+  * [Elastic Cloud Compute (EC2)](./modules/ec2/)
+  * [Auto Scaling Group (ASG) & Launch Template](./modules/asg/)
+  * [Load Balancer](./modules/load-balancer/)
+  * [AWS Certificate Manager](./modules/acm/)
+  * [Route 53](./modules/route53/)
+  * [Simple Notification Service (SNS)](./modules/sns/)
+
+<br />
 
 ## Prerequisites
+These are the prerequisites and Setup we probably need for all the projects
+
 - Terraform installed
 - Git installed
 - Github Account and Github repository for the project
