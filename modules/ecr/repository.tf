@@ -1,8 +1,8 @@
 resource "aws_ecr_repository" "this" {
-  name                 = var.repository_name
-  image_tag_mutability = "MUTABLE"
+  name                 = var.name
+  image_tag_mutability = "MUTABLE" # Set to mutable to put the tag "latest" on the most recent image
 
   image_scanning_configuration {
-    scan_on_push = var.repository_scan_on_push
+    scan_on_push = var.scan_on_push
   }
 }
