@@ -12,6 +12,12 @@ variable "role" {
   })
 }
 
+variable "policy_arn" {
+  default     = null
+  description = "iam policy arn"
+  type        = string
+}
+
 variable "policy" {
   default     = null
   description = "iam policy"
