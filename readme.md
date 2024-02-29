@@ -13,7 +13,8 @@
 ## Table of Contents
 
 * [IP Address Manager (IPAM)](./ipam/)
-* [Deploy High Available and Fault Tolerant Dynamic Website](./dynamic-website-deployment/)
+* [Deploy High Available and Fault Tolerant Dynamic Website](./fleetcart/)
+* [Deploy a Static Web App on AWS with Docker, Amazon ECR, and Amazon ECS](./jupiter/)
 * [Modules](./modules/)
   * [Network Configuration of the Virtual Private Cloud (VPC)](./modules/network/)
   * [Security Group](./modules/security-group/)
