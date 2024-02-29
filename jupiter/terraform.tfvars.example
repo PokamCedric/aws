@@ -1,0 +1,66 @@
+# Environment
+region="your-region-name" 
+profile="your-profile-name"
+project_name = "your-project-name"
+environment = "your-project-environment-name"
+
+# Network
+azs_count = 2
+vpc_cidr  = "10.0.0.0/16"
+public_subnets = [
+  { name = "", # End name would be "public--subnet-azname"
+  cidrs = ["10.0.0.0/24", "10.0.1.0/24"] }
+]
+
+private_subnets = [
+  { name = "app", # End name would be "private-app-subnet-azname"
+  cidrs = ["10.0.2.0/24", "10.0.3.0/24"] },
+  { name = "db", # End name would be "private-db-subnet-azname"
+  cidrs = ["10.0.4.0/24", "10.0.5.0/24"] }
+]
+
+# ECS
+container_port_mapping = {
+  protocol      = "TCP"
+  containerPort = 80
+  hostPort      = 80
+}
+
+runtime_platform = {
+  #Valid Values: WINDOWS_SERVER_2019_FULL | WINDOWS_SERVER_2019_CORE | WINDOWS_SERVER_2016_FULL | WINDOWS_SERVER_2004_CORE | WINDOWS_SERVER_2022_CORE | WINDOWS_SERVER_2022_FULL | WINDOWS_SERVER_20H2_CORE | LINUX
+  operating_system = "LINUX"
+
+  # Valid Values: X86_64 | ARM64 (<- for Mac)
+  cpu_architecture = "X86_64"
+}
+
+# ECR
+registry_id = "ecr-register-id" # change this
+
+# ACM
+domain_name="your-domain.com"
+alternative_names=["*.your-domain.com"]
+
+# Route 53
+record_name = "your-sub domain" # exple "www"
+
+# IAM
+execution_role_name = "execution"
+
+execution_role = {
+  name        = "jupiter-execution-role"
+  description = null
+  body = {
+    "Version" : "2012-10-17",
+    "Statement" : [
+      {
+        "Action" : "sts:AssumeRole",
+        "Principal" : {
+          "Service" : "ecs-tasks.amazonaws.com"
+        },
+        "Effect" : "Allow",
+        "Sid" : ""
+      }
+    ]
+  }
+}

@@ -52,19 +52,6 @@ variable "private_subnets" {
 }
 
 ################################################################################
-# Security Groups
-################################################################################
-variable "alb_sg_ports" {
-  description = "Security Group ports for the Application Load Balancer"
-  type        = list(number)
-}
-
-variable "web_sg_ports" {
-  description = "Security Group ports for the Web Server"
-  type        = list(number)
-}
-
-################################################################################
 # ECS
 ################################################################################
 variable "container_port_mapping" {

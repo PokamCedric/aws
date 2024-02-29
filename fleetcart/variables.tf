@@ -52,29 +52,6 @@ variable "private_subnets" {
 }
 
 ################################################################################
-# Security Groups
-################################################################################
-variable "alb_sg_ports" {
-  description = "Security Group ports for the Application Load Balancer"
-  type        = list(number)
-}
-
-variable "bh_sg_ports" {
-  description = "Security Group ports for the Bastion Host"
-  type        = list(number)
-}
-
-variable "web_sg_ports" {
-  description = "Security Group ports for the Web Server"
-  type        = list(number)
-}
-
-variable "db_sg_ports" {
-  description = "Security Group ports for the Database Server"
-  type        = list(number)
-}
-
-################################################################################
 # Auto Scaling Group
 ################################################################################
 variable "ami" {
