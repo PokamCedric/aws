@@ -1,3 +1,15 @@
+
+# Deploy a Static Web App on AWS with Docker, Amazon ECR, and Amazon ECS
+
+
+## Final Result
+![final Result](./images/result.png)  <br />
+
+## Architecture
+![Architecture](./images/architecture.png)  <br />
+
+## Container Setup
+
 1) Create [Dockerfile](./jupiter-website/Dockerfile)
 2) Switch to the [Docker folder](./jupiter-website/) and Build the Container image: 
 ```sh
