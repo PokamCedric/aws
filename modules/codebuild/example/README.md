@@ -1,0 +1,1 @@
+1) Create a "Personal Access Token" (PAT) on Github to give the access of our repository to AWS-Codebuild. The necessary accesses we need to give are "repo" and "admin:repo_hook".

@@ -12,10 +12,9 @@ terraform {
 
   # Store the terraform state file in s3
   backend "s3" {
-    bucket         = "terraform-state-for-terraform-user"
-    key            = "terraform.tfstate.dev"
-    region         = "us-east-1"
-    profile        = "terraform-user"
-    dynamodb_table = "terraform-state-lock"
+    bucket  = "terraform-state-for-terraform-user"
+    key     = "build/terraform.tfstate.dev"
+    region  = "us-east-1"
+    profile = "terraform-user"
   }
 }
