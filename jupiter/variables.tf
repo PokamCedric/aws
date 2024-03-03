@@ -72,32 +72,6 @@ variable "runtime_platform" {
 }
 
 ################################################################################
-# IAM
-################################################################################
-variable "execution_role_name" {
-  description = "IAM Execution Role Name"
-  type        = string
-}
-
-variable "execution_role" {
-  description = "IAM Execution Role"
-  type = object({
-    name        = string
-    description = string
-    body        = any
-  })
-}
-
-variable "execution_policy" {
-  description = "IAM Execution Policy"
-  type = object({
-    name        = string
-    description = string
-    body        = any
-  })
-}
-
-################################################################################
 # ECR
 ################################################################################
 variable "registry_id" {

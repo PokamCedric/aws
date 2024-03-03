@@ -43,24 +43,3 @@ alternative_names=["*.your-domain.com"]
 
 # Route 53
 record_name = "your-sub domain" # exple "www"
-
-# IAM
-execution_role_name = "execution"
-
-execution_role = {
-  name        = "jupiter-execution-role"
-  description = null
-  body = {
-    "Version" : "2012-10-17",
-    "Statement" : [
-      {
-        "Action" : "sts:AssumeRole",
-        "Principal" : {
-          "Service" : "ecs-tasks.amazonaws.com"
-        },
-        "Effect" : "Allow",
-        "Sid" : ""
-      }
-    ]
-  }
-}
