@@ -12,7 +12,7 @@ variable "role" {
           Principal = {
             Service = "ec2.amazonaws.com"
           }
-        },
+        }
       ]
     }
   }
