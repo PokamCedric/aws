@@ -22,11 +22,14 @@
   * [Simple Storage Service (S3)](./modules/s3/)
   * [Relational Database Service (RDS)](./modules/rds/)
   * [Elastic Cloud Compute (EC2)](./modules/ec2/)
+  * [Elastic Container Registry (ECR)](./modules/ecr/)
+  * [Elastic Container Service (ECS)](./modules/ecs/)
   * [Auto Scaling Group (ASG) & Launch Template](./modules/asg/)
   * [Load Balancer](./modules/load-balancer/)
   * [AWS Certificate Manager](./modules/acm/)
   * [Route 53](./modules/route53/)
   * [Simple Notification Service (SNS)](./modules/sns/)
+  * [CodeBuild)](./modules/codebuild/)
 
 <br />
 
