@@ -12,6 +12,7 @@
 
 ## Table of Contents
 
+* [CloudFormation Project](./cloudformation/)
 * [IP Address Manager (IPAM)](./ipam/)
 * [Deploy High Available and Fault Tolerant Dynamic Website](./fleetcart/)
 * [Deploy a Static Web App on AWS with Docker, Amazon ECR, and Amazon ECS](./jupiter/)
