@@ -1,13 +1,14 @@
 module "s3" {
   source = "../"
 
-  environment = "Dev"
+  environment  = "Dev"
+  project_name = "example"
 
-  bucket_name = "cedricpokam-fleetcart-bucket"
+  bucket_name = "cedricpokam-techmax-bucket-2"
   bucket_tags = {
-    Name = "fleetcart-bucket"
+    Name = "techmax-bucket"
   }
 
-  file_source_path      = "C:\\Users\\molar\\Downloads\\FleetCart.zip"
-  file_destination_path = "FleetCart.zip"
+  file_source_path      = var.file_source_path
+  file_destination_path = "techmax.zip"
 }
