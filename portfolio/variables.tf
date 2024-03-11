@@ -31,7 +31,20 @@ variable "iam_policy_for_lambda" {
   })
 }
 
-variable "file_source_path" {
-  description = "S3 Object Source file"
-  type        = string
+# variable "file_source_path" {
+#   description = "S3 Object Source file"
+#   type        = string
+# }
+
+################################################################################
+# Hosting
+################################################################################
+variable "bucket_id" {
+  default     = null
+  description = "Bucket"
+}
+
+variable "bucket_arn" {
+  default     = null
+  description = "Bucket arn"
 }

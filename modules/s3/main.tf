@@ -12,7 +12,7 @@ module "bucket" {
 }
 
 module "object" {
-  source = "./object"
+  source = "./single_object"
 
   depends_on            = [module.bucket]
   bucket                = module.bucket.id

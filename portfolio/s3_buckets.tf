@@ -12,7 +12,7 @@ module "s3_bucket_source" {
   environment  = var.environment
   project_name = var.project_name
 
-  bucket_name = "${local.environment}-bucket-src"
+  bucket_name = "${local.environment}-bucket-${local.account_id}"
   bucket_tags = {
     Name = "bucket-src"
   }
