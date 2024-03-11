@@ -48,3 +48,24 @@ variable "bucket_arn" {
   default     = null
   description = "Bucket arn"
 }
+
+################################################################################
+# ACM
+################################################################################
+variable "domain_name" {
+  description = "domain name"
+  type        = string
+}
+
+variable "alternative_names" {
+  description = "sub domain names"
+  type        = list(string)
+}
+
+################################################################################
+# Route 53
+################################################################################
+variable "record_name" {
+  description = "sub domain name"
+  type        = string
+}
