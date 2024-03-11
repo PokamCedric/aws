@@ -10,13 +10,13 @@ variable "record_name" {
   type        = string
 }
 
-variable "alb_dns_name" {
+variable "dns_name" {
   default     = null
   description = "alb dns name"
   type        = string
 }
 
-variable "alb_zone_id" {
+variable "zone_id" {
   default     = null
   description = "alb hosted zone"
   type        = string
