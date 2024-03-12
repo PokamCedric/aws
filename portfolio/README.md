@@ -1,21 +1,17 @@
+## Introduction
 
-## Benefits
+I am embarking on a personal project and planning to develop a static website for it. S3 appears to be an excellent choice for hosting such websites due to its high availability and cost-effectiveness. However, one downside of using S3 as a hosting platform is that the generated URLs for S3 bucket websites may not look very professional to visitors and only support insecure HTTP connections.
 
-In five simple and easy steps you have learned how to host your static website out of AWS S3. Not to mention you scored some benefits from moving your static website to S3.
+To overcome this limitation, I've taken the initiative to purchase a domain name from Route 53 to associate it with my S3-hosted static website. Furthermore, I've decided to employ AWS CloudFront to enable secure HTTPS connections to the S3 website endpoint.
 
-Low cost — Hosting a website in S3 does not incur extra charges. You are paying standard S3 prices on GET requests and Data Transfer out of the bucket when a user visits your site.
+The goal of this project is to:
 
-    GET Requests cost $0.004 per 10,000 requests
-    Data Transfer Out cost $0.090 per GB (up to 10 TB / month)
+- Create an S3 bucket to store the static website content.
+- Configure the S3 bucket as a static website.
+- Establish a CloudFront distribution to serve the website content.
+- Link the CloudFront distribution with my purchased domain name in Route 53.
 
-A Cost breakdown example: Let’s say that www.my-awesome-site.com loads 20 resources. The total size of those resources per visit is 1MB. The average total monthly visits is 20,000. Then we estimate the total cost of S3 on a monthly basis at around $1.96 per month.
+Upon completion of these steps, users who visit `my-domain.com` in their browser will have the index.html page, hosted in the S3 bucket, served to them from CloudFront's distribution network within their browser window.
 
-Not long ago, you paid $10/month, so $2 is worth it.
-
-Maintenance — Your static website now resides in S3. There is no longer any server side code to maintain and no web servers to configure and keep up to date.
-
-Scale — S3 is a high availability and durable service that AWS maintains. If your website goes from 10 users a day to 10 million, S3 scales your website automatically.
-
-Security — There is no server running that you maintain. Thus you avoid making configuration errors that make you vulnerable to attacks. You are still responsible for the security of your bucket. Remember your website bucket is public!
-
-Those are some serious wins under your belt. With an S3 website setup, you have a foundation to build on to extend and leverage even more of AWS.
+## Architecture
+![Architecture](./images/architecture.webp)  <br />

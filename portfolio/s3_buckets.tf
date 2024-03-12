@@ -17,3 +17,7 @@ module "s3_bucket_source" {
     Name = "bucket-src"
   }
 }
+
+output "s3_website_endpoint" {
+  value = module.s3_bucket_source.bucket_regional_domain_name
+}

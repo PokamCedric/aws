@@ -69,3 +69,8 @@ variable "record_name" {
   description = "sub domain name"
   type        = string
 }
+
+variable "record_name_www" {
+  description = "sub domain name www"
+  type        = string
+}
