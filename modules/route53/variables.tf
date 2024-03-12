@@ -6,18 +6,24 @@ variable "domain_name" {
 
 variable "record_name" {
   default     = null
-  description = "sub domain name"
+  description = "subdomain name"
   type        = string
 }
 
-variable "alb_dns_name" {
+variable "dns_name" {
   default     = null
-  description = "alb dns name"
+  description = "dns name"
   type        = string
 }
 
-variable "alb_zone_id" {
+variable "zone_id" {
   default     = null
-  description = "alb hosted zone"
+  description = "hosted zone"
   type        = string
+}
+
+variable "evaluate_target_health" {
+  default     = false
+  description = "evaluate_target_health option"
+  type        = bool
 }

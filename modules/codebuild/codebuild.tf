@@ -1,6 +1,10 @@
+locals {
+  is_name_present = var.name != null && var.name != ""
+  codebuild_name  = local.is_name_present ? var.name : "${var.project_name}-${var.environment}-codebuild"
+}
 
 resource "aws_codebuild_project" "this" {
-  name          = var.project_name
+  name          = local.codebuild_name
   description   = var.project_description
   build_timeout = 5
   service_role  = module.iam_service_role_policy.role_arn

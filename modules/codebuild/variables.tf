@@ -26,6 +26,11 @@ variable "privilege_enabled" {
   default     = false
 }
 
+variable "name" {
+  default     = null
+  description = "Codebuild Name"
+  type        = string
+}
 ################################################################################
 # Codebuild Environment
 ################################################################################
