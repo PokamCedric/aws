@@ -2,7 +2,7 @@
 ## Introduction
 we'll explore the process of creating a RESTful service utilizing an API gateway and Lambda functions. DynamoDB will serve as our backend datastore, and we'll utilize Terraform to deploy all necessary AWS resources. The APIs we'll be developing include:
 
-![api](./images/architecture.webp)  <br />
+![api](./images/api.webp)  <br />
 
 ## Architecture
 ![Architecture](./images/architecture.webp)  <br />
