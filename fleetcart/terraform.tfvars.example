@@ -29,21 +29,23 @@ record_name = "your-sub domain" # exple "www"
 
 # IAM
 role = {
-  name        = "web_role" # change name
+  name        = "fleetcart_web_role"
   description = null
-  body = {
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Action = "sts:AssumeRole"
-        Effect = "Allow"
-        Sid    = ""
-        Principal = {
-          Service = "ec2.amazonaws.com"
+  body        = <<EOF
+{
+      "Version" : "2012-10-17",
+      "Statement" : [
+        {
+          "Action" : "sts:AssumeRole",
+          "Effect" : "Allow",
+          "Sid"    : "",
+          "Principal" : {
+            "Service" : "ec2.amazonaws.com"
+          }
         }
-      }
-    ]
-  }
+      ]
+}
+EOF
 }
 
 policy = {

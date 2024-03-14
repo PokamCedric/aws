@@ -8,7 +8,7 @@ variable "role" {
   type = object({
     name        = string
     description = string
-    body        = any
+    body        = string
   })
 }
 
@@ -24,7 +24,7 @@ variable "policy" {
   type = object({
     name        = string
     description = string
-    body        = any
+    body        = string
   })
 }
 
