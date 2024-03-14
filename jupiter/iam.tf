@@ -11,18 +11,20 @@ module "iam_execution_role_policy" {
   role = {
     name        = "${local.execution_role_service}-execution-role"
     description = null
-    body = {
-      "Version" : "2012-10-17",
-      "Statement" : [
-        {
-          "Action" : "sts:AssumeRole",
-          "Principal" : {
-            "Service" : "${execution_role_service}.amazonaws.com"
-          },
-          "Effect" : "Allow",
-          "Sid" : ""
-        }
-      ]
-    }
+    body        = <<EOF
+{
+        "Version" : "2012-10-17",
+        "Statement" : [
+          {
+            "Action" : "sts:AssumeRole",
+            "Effect" : "Allow",
+            "Sid"    : "",
+            "Principal" : {
+              "Service" : "${local.execution_role_service}.amazonaws.com"
+            }
+          }
+        ]
+}
+EOF
   }
 }
