@@ -16,7 +16,7 @@
 * [IP Address Manager (IPAM)](./ipam/)
 * [Deploy High Available and Fault Tolerant Dynamic Website](./fleetcart/)
 * [Deploy a Static Web App on AWS with Docker, Amazon ECR, and Amazon ECS](./jupiter/)
-* [Deploy a Static Web App on AWS with S3 and Cloudfront](./porfolio/)
+* [Deploy a Static Web App on AWS with S3 and Cloudfront](./portfolio/)
 * [Deploy a Serveless Backend with API-Gateway + Lambda + Dynamodb](./product-api/)
 * [Modules](./modules/)
   * [Network Configuration of the Virtual Private Cloud (VPC)](./modules/network/)
