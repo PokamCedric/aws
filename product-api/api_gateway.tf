@@ -5,7 +5,7 @@ module "aws_api_gateway" {
   api_description = var.api_description
   methods         = ["POST"]
   stage_name      = "dev"
-  inegration_uri  = aws_lambda_function.CreateProduct.invoke_arn
+  inegration_uri  = module.lambda.invoke_arn
 }
 
 output "url" {
