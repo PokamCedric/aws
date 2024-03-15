@@ -23,6 +23,7 @@
   * [Security Group](./modules/security-group/)
   * [Identity and Access Management (IAM)](./modules/iam/)
   * [Simple Storage Service (S3)](./modules/s3/)
+  * [Lambda)](./modules/lambda/)
   * [API Gateway](./modules/api_gateway/)
   * [Relational Database Service (RDS)](./modules/rds/)
   * [Elastic Cloud Compute (EC2)](./modules/ec2/)
