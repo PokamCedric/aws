@@ -1,5 +1,5 @@
 module "aws_api_gateway" {
-  source = "../modules/api_gateway"
+  source = "../modules/api_gateway/simple/"
 
   resource        = var.resource
   api_description = var.api_description

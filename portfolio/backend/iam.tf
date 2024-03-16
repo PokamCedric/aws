@@ -8,7 +8,7 @@ data "template_file" "lambda_policy" {
 }
 
 module "lambda_policy" {
-  source = "../modules/iam"
+  source = "../../modules/iam"
 
   role = {
     name        = "${var.project_name}-${local.service}-role"

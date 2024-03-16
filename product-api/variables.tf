@@ -4,6 +4,12 @@ variable "region" {
   type        = string
 }
 
+variable "project_name" {
+  default     = "product-api"
+  description = "Project name"
+  type        = string
+}
+
 variable "resource" {
   default     = "product"
   description = "API resource we want to create"
