@@ -3,6 +3,11 @@ output "rest_api_id" {
   value       = aws_api_gateway_rest_api.this.id
 }
 
+output "resource_id" {
+  description = "API resource id"
+  value       = aws_api_gateway_resource.this.id
+}
+
 output "rest_api_execution_arn" {
   description = "REST API execution ARN"
   value       = aws_api_gateway_rest_api.this.execution_arn
