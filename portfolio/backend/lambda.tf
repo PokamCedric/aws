@@ -14,5 +14,5 @@ module "lambda" {
 
 
   # aws_lambda_permission
-  source_arn = "${module.aws_api_gateway.rest_api_execution_arn}/*"
+  source_arn = "${aws_api_gateway_rest_api.visitorCounter.execution_arn}/*"
 }
