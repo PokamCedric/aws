@@ -1,10 +1,6 @@
 ## https://developer.hashicorp.com/terraform/tutorials/applications/cloudflare-static-website?variants=cdn%3Acloudflare
 
-locals {
-  is_cloudfront = var.cloudfront_distribution_arn != null && var.cloudfront_distribution_arn != ""
-}
-
-resource "aws_s3_bucket_public_access_block" "site" {
+resource "aws_s3_bucket_public_access_block" "this" {
   bucket = var.bucket_id
 
   block_public_acls       = var.block_public_access
@@ -13,7 +9,7 @@ resource "aws_s3_bucket_public_access_block" "site" {
   restrict_public_buckets = var.block_public_access
 }
 
-resource "aws_s3_bucket_website_configuration" "site" {
+resource "aws_s3_bucket_website_configuration" "this" {
   bucket = var.bucket_id
 
   index_document {
@@ -25,20 +21,20 @@ resource "aws_s3_bucket_website_configuration" "site" {
   }
 }
 
-resource "aws_s3_bucket_ownership_controls" "site" {
+resource "aws_s3_bucket_ownership_controls" "this" {
   bucket = var.bucket_id
   rule {
     object_ownership = "BucketOwnerPreferred"
   }
 }
 
-resource "aws_s3_bucket_acl" "site" {
+resource "aws_s3_bucket_acl" "this" {
   bucket = var.bucket_id
 
   acl = var.block_public_access ? "private" : "public-read"
   depends_on = [
-    aws_s3_bucket_ownership_controls.site,
-    aws_s3_bucket_public_access_block.site
+    aws_s3_bucket_ownership_controls.this,
+    aws_s3_bucket_public_access_block.this
   ]
 }
 
@@ -47,8 +43,8 @@ resource "aws_s3_bucket_acl" "site" {
   The aws_s3_bucket_policy "allow_cloudfront" grants CloudFront read-only access via Origin Access Control (OAC).
   This approach ensures exclusive content access through CloudFront.
 */
-
-resource "aws_s3_bucket_policy" "site" {
+// !!! You should set first var.block_public_access to false
+resource "aws_s3_bucket_policy" "this" {
   bucket = var.bucket_id
 
   policy = jsonencode({
@@ -68,6 +64,6 @@ resource "aws_s3_bucket_policy" "site" {
   })
 
   depends_on = [
-    aws_s3_bucket_public_access_block.site
+    aws_s3_bucket_public_access_block.this
   ]
 }

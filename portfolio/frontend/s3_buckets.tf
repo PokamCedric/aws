@@ -7,7 +7,7 @@ locals {
 }
 
 module "s3_bucket_source" {
-  source = "../modules/s3/bucket"
+  source = "../../modules/s3/bucket"
 
   environment  = var.environment
   project_name = var.project_name
@@ -16,8 +16,4 @@ module "s3_bucket_source" {
   bucket_tags = {
     Name = "bucket-src"
   }
-}
-
-output "s3_website_endpoint" {
-  value = module.s3_bucket_source.bucket_regional_domain_name
 }

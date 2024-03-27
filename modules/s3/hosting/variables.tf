@@ -18,9 +18,3 @@ variable "block_public_access" {
   description = "Block S3 Bucket Pulbic Access"
   type        = bool
 }
-
-variable "cloudfront_distribution_arn" {
-  default     = null
-  description = "Block S3 Bucket Pulbic Access"
-  type        = string
-}

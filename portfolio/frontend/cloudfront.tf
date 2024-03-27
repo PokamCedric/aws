@@ -25,7 +25,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   http_version        = "http2and3"
   price_class         = "PriceClass_100" # Use only North America and Europe
   default_root_object = "index.html"
-  aliases             = concat([var.domain_name], var.alternative_names)
+  aliases             = ["www.${var.domain_name}"]
 
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD", "OPTIONS"] # ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
@@ -53,7 +53,8 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     }
   }
 
-  restrictions {
+    # This is required to be specified even if it's not used.
+    restrictions {
     geo_restriction {
       restriction_type = "none"
     }
@@ -80,7 +81,4 @@ resource "aws_cloudfront_function" "www_redirect" {
   runtime = "cloudfront-js-1.0"
   code    = file("${path.module}/functions/cloudfront_func.js")
   publish = true
-}
-output "cloudfront_url" {
-  value = aws_cloudfront_distribution.s3_distribution.domain_name
 }
